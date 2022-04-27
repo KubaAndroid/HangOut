@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark3">
+
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_event_other" />
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:background="@color/colorPrimaryDark2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_profile_username"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Place information or warning on map" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginHorizontal="15dp"
+            android:background="@color/colorPrimaryDark2"
+            android:orientation="vertical"
+            tools:context=".AddOtherActivity">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:text="Info type:"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/rg_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <RadioButton
+                    android:id="@+id/rb_event_warning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Warning"
+                    android:textColor="#ff0000"
+                    android:buttonTint="#ff0000"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_event_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Information"
+                    android:textColor="#ffff00"
+                    android:buttonTint="#ffff00"
+                    android:textSize="18sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Event commentary:"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_add_other_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:textCursorDrawable="@null"
+                android:hint="commentary:"
+                android:inputType="text"
+                android:singleLine="false"
+                android:textColor="@color/white"
+                android:ems="10"
+                android:textColorHint="@color/colorPrimaryLight2" />
+
+            <Button
+                android:id="@+id/btn_add_other_frag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/colorPrimary"
+                android:text="Add event"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

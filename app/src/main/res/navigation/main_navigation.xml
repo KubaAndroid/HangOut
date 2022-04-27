@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/menuAddFragment">
+
+    <fragment
+        android:id="@+id/mapEventsFragment"
+        android:label="Map"
+        android:name="jw.adamiak.hangout.ui.events.events_map.MapEventsFragment" >
+        <action
+            android:id="@+id/action_mapEventsFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileMenuFragment"
+        android:name="jw.adamiak.hangout.ui.profile.ProfileMenuFragment"
+        android:label="Profile" >
+        <action
+            android:id="@+id/action_profileMenuFragment_to_mapAddFragment"
+            app:destination="@id/mapAddFragment" />
+        <action
+            android:id="@+id/action_profileMenuFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_profileMenuFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileMenuFragment_to_myEventsFragment"
+            app:destination="@id/myEventsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="jw.adamiak.hangout.ui.profile.chat.ChatFragment"
+        android:label="Chat" >
+        <argument
+            android:name="chatRoom"
+            app:argType="string"
+            android:defaultValue="default" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapAddFragment"
+        android:name="jw.adamiak.hangout.ui.add.map_add.MapAddFragment"
+        android:label="Add event" >
+        <action
+            android:id="@+id/action_mapAddFragment_to_menuAddFragment"
+            app:destination="@id/menuAddFragment"
+            app:popUpTo="@id/menuAddFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/menuAddFragment"
+        android:name="jw.adamiak.hangout.ui.add.MenuAddFragment"
+        android:label="Add events" >
+        <action
+            android:id="@+id/action_menuAddFragment_to_mapAddFragment"
+            app:destination="@id/mapAddFragment" />
+        <action
+            android:id="@+id/action_menuAddFragment_to_eventAddFragment"
+            app:destination="@id/eventAddFragment" />
+        <action
+            android:id="@+id/action_menuAddFragment_to_addInfoFragment"
+            app:destination="@id/addInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventAddFragment"
+        android:name="jw.adamiak.hangout.ui.add.event_add.EventAddFragment"
+        android:label="New event" >
+        <action
+            android:id="@+id/action_eventAddFragment_to_mapAddFragment"
+            app:destination="@id/mapAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addInfoFragment"
+        android:name="jw.adamiak.hangout.ui.add.add_info.AddInfoFragment"
+        android:label="Add info" >
+        <action
+            android:id="@+id/action_addInfoFragment_to_mapAddFragment"
+            app:destination="@id/mapAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="jw.adamiak.hangout.ui.profile.edit_profile.EditProfileFragment"
+        android:label="Edit profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileMenuFragment"
+            app:destination="@id/profileMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myEventsFragment"
+        android:name="jw.adamiak.hangout.ui.profile.my_events.MyEventsFragment"
+        android:label="My events" >
+        <action
+            android:id="@+id/action_myEventsFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="jw.adamiak.hangout.ui.events.event_detail.EventDetailFragment"
+        android:label="Event details" >
+        <action
+            android:id="@+id/action_eventDetailFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <argument
+            android:name="event"
+            app:argType="jw.adamiak.hangout.data.remote.MapObject"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_eventDetailFragment_to_eventEditFragment"
+            app:destination="@id/eventEditFragment" />
+        <action
+            android:id="@+id/action_eventDetailFragment_to_chosenEventMapFragment"
+            app:destination="@id/chosenEventMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exitFragment"
+        android:name="jw.adamiak.hangout.ui.main_screen.ExitFragment"
+        android:label="Exit" />
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="jw.adamiak.hangout.ui.main_screen.LogoutFragment"
+        android:label="Logout" />
+    <fragment
+        android:id="@+id/eventEditFragment"
+        android:name="jw.adamiak.hangout.ui.events.event_detail.EventEditFragment"
+        android:label="Edit event" >
+        <argument
+            android:name="event"
+            app:argType="jw.adamiak.hangout.data.remote.MapObject" />
+        <action
+            android:id="@+id/action_eventEditFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <action
+            android:id="@+id/action_eventEditFragment_to_mapEventsFragment"
+            app:destination="@id/mapEventsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chosenEventMapFragment"
+        android:name="jw.adamiak.hangout.ui.events.events_map.ChosenEventMapFragment"
+        android:label="Chosen Event" >
+        <action
+            android:id="@+id/action_chosenEventMapFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <argument
+            android:name="event"
+            app:argType="jw.adamiak.hangout.data.remote.MapObject" />
+    </fragment>
+</navigation>

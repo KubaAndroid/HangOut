@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark2"
+        android:elevation="3dp"
+        android:layout_margin="8dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_event_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Event Name"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/tv_event_type"
+            android:text="event type"
+            android:layout_marginHorizontal="15dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_event_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/tv_event_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_event_title"
+            app:layout_constraintEnd_toStartOf="@+id/tv_event_type"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/colorPrimaryLight2"
+            android:text="commentary for the event that is obviously too long to fit on one line" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

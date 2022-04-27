@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimaryDark3">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:padding="15dp"
+                android:background="@color/colorPrimaryDark2"
+                tools:context=".RegisterActivity">
+
+                <TextView
+                    android:id="@+id/tv_username_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Username:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_username_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="15dp"
+                    android:ems="10"
+                    android:hint="please enter username"
+                    android:inputType="textEmailAddress"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/colorPrimaryDark4"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_email_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Email:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_email_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="15dp"
+                    android:ems="10"
+                    android:hint="please enter email address"
+                    android:inputType="textEmailAddress"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/colorPrimaryDark4"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_password_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Password:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_password_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="15dp"
+                    android:ems="10"
+                    android:hint="minimum 6 characters"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/colorPrimaryDark4"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_password_register_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:text="Please repeat password"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/et_password_register_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="15dp"
+                    android:ems="10"
+                    android:hint="please repeat password"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/colorPrimaryDark4"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp">
+
+                    <ProgressBar
+                        android:id="@+id/pb_register"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        style="?android:attr/progressBarStyle"
+                        android:indeterminateDrawable="@drawable/pb"
+                        android:indeterminateDuration="@android:integer/status_bar_notification_info_maxnum" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_register_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/white"
+                    android:text="REGISTER" />
+
+                <Button
+                    android:id="@+id/btn_register_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:textColor="@color/white"
+                    android:text="GO BACK" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menuAddFragment"
+            android:icon="@drawable/ic_chat"
+            android:title="Add Pin" />
+        <item
+            android:id="@+id/mapEventsFragment"
+            android:icon="@drawable/ic_map"
+            android:title="Check Map" />
+        <item
+            android:id="@+id/profileMenuFragment"
+            android:icon="@drawable/ic_drawer_profile"
+            android:title="Profile" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/logoutFragment"
+                android:icon="@drawable/ic_drawer_logout"
+                android:title="Logout" />
+            <item
+                android:id="@+id/exitFragment"
+                android:icon="@drawable/ic_drawer_quit"
+                android:title="Quit" />
+
+        </menu>
+    </item>
+
+</menu>

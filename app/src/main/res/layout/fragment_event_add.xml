@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark3"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:padding="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_event_add" />
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:background="@color/colorPrimaryDark2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_profile_username"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Add new event" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="15dp"
+            android:padding="15dp"
+            android:background="@color/colorPrimaryDark2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/event_date"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_event_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:ems="10"
+                android:hint="enter event's name"
+                android:textCursorDrawable="@null"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimaryLight2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/event_comment"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_add_event_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textCursorDrawable="@null"
+                android:layout_marginTop="0dp"
+                android:hint="add event commentary"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimaryLight2"
+                android:textSize="20sp"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:maxLines="8" />
+
+            <TextView
+                android:id="@+id/tvEventDateAddEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/event_date"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_event_date_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:hint="click to choose event's date"
+                android:paddingVertical="14dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimaryLight2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/event_time"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/tv_event_time_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:paddingVertical="14dp"
+                android:hint="click to choose event's time"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimaryLight2"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:id="@+id/btn_add_event_frag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text="Add event" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

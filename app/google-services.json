@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "284700308310",
+    "project_id": "hangout-206fe",
+    "storage_bucket": "hangout-206fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284700308310:android:44601612f28cc368b91cf7",
+        "android_client_info": {
+          "package_name": "jw.adamiak.hangout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284700308310-da32flh7rdg39ksfef1guk7l11ot70o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtWyP-E9llfR5RDxysASbkW0lR-Kr3T38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284700308310-da32flh7rdg39ksfef1guk7l11ot70o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

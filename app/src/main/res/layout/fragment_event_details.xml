@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark3"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimaryDark2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@mipmap/ic_events_list" />
+
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginLeft="15dp"
+                android:background="@color/colorPrimaryDark2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_chosen_event_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:text="@string/chosen_event"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_chosen_event_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="16sp"
+                    android:text="@string/event_date"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            android:padding="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/colorPrimaryDark2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_chosen_event_chat"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text="@string/chat" />
+
+            <Button
+                android:id="@+id/btn_chosen_event_map"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:text="@string/map" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="30dp"
+                android:padding="15dp"
+                android:background="@color/colorPrimaryDark2"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/event_comment"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_event_commentary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:paddingHorizontal="20dp"
+                    android:text="@string/comment"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/organizer"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_event_organizer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/username"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/event_date"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_event_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/event_date"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="Event created"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_event_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/time"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn_chosen_event_leave"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginHorizontal="25dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:background="@color/colorRemoveRed"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:text="Leave" />-->
+
+                <Button
+                    android:id="@+id/btn_chosen_event_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="25dp"
+                    android:background="@color/colorAccentDark"
+                    android:textColor="@color/white"
+                    android:text="@string/edit" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
