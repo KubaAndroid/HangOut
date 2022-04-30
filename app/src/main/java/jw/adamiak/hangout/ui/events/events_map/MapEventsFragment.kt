@@ -113,6 +113,7 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events), GoogleMap.OnInf
 									.bearing(0f)
 									.tilt(45f)
 									.build()))
+
 				}
 			}
 		} else {

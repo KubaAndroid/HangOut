@@ -51,6 +51,9 @@ class MapAddFragment: Fragment(R.layout.fragment_map_add),
 
 	private lateinit var event: MapObject
 
+	private lateinit var snack: Snackbar
+	private var isSnackbarVisible: Boolean = false
+
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		binding = FragmentMapAddBinding.bind(view)
@@ -116,16 +119,26 @@ class MapAddFragment: Fragment(R.layout.fragment_map_add),
 
 
 	private fun showSnackBar(message: String){
-		val snack = Snackbar.make(requireView(), message, Snackbar.LENGTH_INDEFINITE)
+		isSnackbarVisible = true
+		snack = Snackbar.make(requireView(), message, Snackbar.LENGTH_INDEFINITE)
 		snack.setAction("OK") {
 			try {
 				findNavController().navigate(R.id.action_mapAddFragment_to_menuAddFragment)
+				snack.dismiss()
+				isSnackbarVisible = false
 			} catch (e: Exception) {
+				snack.dismiss()
 				println("error: ${e.message}")
 			}
-
 		}
 		snack.show()
+	}
+
+	override fun onDestroy() {
+		if(isSnackbarVisible) {
+			snack.dismiss()
+		}
+		super.onDestroy()
 	}
 
 	private fun enableMyLocation(mMap: GoogleMap) {
