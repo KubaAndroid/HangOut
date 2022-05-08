@@ -33,9 +33,6 @@ class ChatViewModel @Inject constructor(
 				_currentUserEmail.value = it.email ?: ""
 				_currentUsername.value = it.username ?: ""
 				if (it.username.isNullOrEmpty()){
-					println("it.username: ${it.username}")
-					println("_currentUserEmail.value: ${_currentUserEmail.value}")
-					println("_currentUsername.value: ${_currentUsername.value}")
 					_currentUserEmail.value = getUserEmailFromFirebase()
 					_currentUsername.value = getUserEmailFromFirebase()
 				}

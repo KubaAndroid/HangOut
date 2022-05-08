@@ -35,6 +35,9 @@ class EventEditFragment: Fragment(R.layout.fragment_event_edit), DatePickerDialo
 	private lateinit var event: MapObject
 	private lateinit var db: FirebaseFirestore
 
+	private lateinit var snack: Snackbar
+	private var isSnackbarVisible: Boolean = false
+
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		binding = FragmentEventEditBinding.bind(view)
@@ -121,16 +124,26 @@ class EventEditFragment: Fragment(R.layout.fragment_event_edit), DatePickerDialo
 	}
 
 	private fun showSnackbar(message: String) {
-		val snack = Snackbar.make(requireView(), message, Snackbar.LENGTH_INDEFINITE)
+		isSnackbarVisible = true
+		snack = Snackbar.make(requireView(), message, Snackbar.LENGTH_INDEFINITE)
 		snack.setAction("OK") {
 			try {
 				findNavController().navigate(R.id.action_eventEditFragment_to_mapEventsFragment)
+				snack.dismiss()
+				isSnackbarVisible = false
 			} catch (e: Exception) {
+				snack.dismiss()
 				println("error: ${e.message}")
 			}
-
 		}
 		snack.show()
+	}
+
+	override fun onDestroy() {
+		if(isSnackbarVisible) {
+			snack.dismiss()
+		}
+		super.onDestroy()
 	}
 
 }

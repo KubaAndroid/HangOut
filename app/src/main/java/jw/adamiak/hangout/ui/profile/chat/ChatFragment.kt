@@ -63,6 +63,7 @@ class ChatFragment: Fragment(R.layout.fragment_chat) {
 		layoutManager = LinearLayoutManager(requireContext())
 		layoutManager.stackFromEnd = true
 		binding.rvChat.layoutManager = layoutManager
+		binding.rvChat.itemAnimator = null
 		binding.rvChat.adapter = adapter
 
 		adapter.registerAdapterDataObserver(ChatScrollObserver(binding.rvChat, adapter, layoutManager))
