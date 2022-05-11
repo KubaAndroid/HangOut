@@ -29,9 +29,14 @@ class ChatAdapter(
 	inner class ChatViewHolder(private val binding: ItemChatMessageBinding)
 		: RecyclerView.ViewHolder(binding.root) {
 		fun bind(message: ChatMessage) {
-			binding.tvMessage.text = message.text
-			binding.tvMessageUsername.text = message.username
-			binding.tvMessageDate.text = message.toTimeString()
+			try {
+				binding.tvMessage.text = message.text
+				binding.tvMessageUsername.text = message.username
+				binding.tvMessageDate.text = message.toTimeString()
+			} catch (e: Exception) {
+				e.printStackTrace()
+			}
+
 		}
 	}
 
