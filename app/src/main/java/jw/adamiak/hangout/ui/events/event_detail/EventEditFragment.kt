@@ -111,7 +111,7 @@ class EventEditFragment: Fragment(R.layout.fragment_event_edit), DatePickerDialo
 	override fun onTimeSet(timePicker: TimePicker?, hour: Int, minutes: Int) {
 		val minutesString = when (minutes) {
 			0 -> "00"
-			in 1..10 -> "0$minutes"
+			in 1..9 -> "0$minutes"
 			else -> "$minutes"
 		}
 		val hoursString = when(hour) {
