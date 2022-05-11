@@ -1,9 +1,10 @@
 package jw.adamiak.hangout.ui.events.events_map
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
+import android.app.NotificationManager
+import android.location.Location
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.*
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
@@ -13,12 +14,15 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import jw.adamiak.hangout.data.remote.MapObject
+import jw.adamiak.hangout.data.remote.PIN_TYPE
 import jw.adamiak.hangout.utils.Helpers.setMarkerType
+import jw.adamiak.hangout.utils.NOTIFICATION_RADIUS
+import jw.adamiak.hangout.utils.sendNotification
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MapViewModel: ViewModel() {
+class MapViewModel(private val app: Application): AndroidViewModel(app) {
 	private val db: FirebaseFirestore = Firebase.firestore
 
 	private var _isLoading = MutableLiveData(false)
@@ -29,7 +33,19 @@ class MapViewModel: ViewModel() {
 	val message: LiveData<String>
 		get() = _message
 
-	suspend fun getGeoPoints(map: GoogleMap): MutableList<MapObject>  =
+	private val _userLocation = MutableLiveData<Location>()
+//	val userLocation: LiveData<Location>
+//		get() = _userLocation
+
+	fun setUserLocation(location: Location){
+		_userLocation.postValue(location)
+	}
+
+	private val notificationsManager = ContextCompat.getSystemService(app,
+		NotificationManager::class.java) as NotificationManager
+
+
+		suspend fun getGeoPoints(map: GoogleMap): MutableList<MapObject>  =
 		withContext(Dispatchers.IO) {
 			val geopoints = mutableListOf<MapObject>()
 			db.collection("geopoints")
@@ -41,6 +57,10 @@ class MapViewModel: ViewModel() {
 						geopoints.add(point)
 						val pinIcon = setMarkerType(point.pinType)
 						addMarkerToMap(map, point, pinIcon)
+						if (point.pinType == PIN_TYPE.POLICE){
+							checkEventsNearby(point)
+						}
+
 					}
 				}
 				.addOnFailureListener { e ->
@@ -60,5 +80,16 @@ class MapViewModel: ViewModel() {
 		)
 	}
 
+	private fun checkEventsNearby(mapObject: MapObject) {
+		_userLocation.value?.let {
+			var distance = floatArrayOf(0F, 0F)
+			Location.distanceBetween(it.latitude, it.longitude, mapObject.lat, mapObject.lng, distance)
+			if (distance[0] < NOTIFICATION_RADIUS) {
+				notificationsManager.sendNotification(
+					"${mapObject.pinTitle} in ${NOTIFICATION_RADIUS}m radius", app)
+			}
+		}
+
+	}
 
 }

@@ -128,9 +128,9 @@ class EventEditFragment: Fragment(R.layout.fragment_event_edit), DatePickerDialo
 		snack = Snackbar.make(requireView(), message, Snackbar.LENGTH_INDEFINITE)
 		snack.setAction("OK") {
 			try {
-				findNavController().navigate(R.id.action_eventEditFragment_to_mapEventsFragment)
 				snack.dismiss()
 				isSnackbarVisible = false
+				findNavController().navigate(R.id.action_eventEditFragment_to_mapEventsFragment)
 			} catch (e: Exception) {
 				snack.dismiss()
 				println("error: ${e.message}")

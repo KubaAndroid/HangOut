@@ -1,8 +1,12 @@
 package jw.adamiak.hangout.ui.main_screen
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.wifi.WifiManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -22,6 +26,8 @@ import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import jw.adamiak.hangout.R
 import jw.adamiak.hangout.ui.start.StartActivity
+import jw.adamiak.hangout.utils.CHANNEL_ID
+import jw.adamiak.hangout.utils.CHANNEL_NAME
 import jw.adamiak.hangout.utils.Helpers.checkInternetConnection
 import jw.adamiak.hangout.utils.Helpers.checkInternetConnectionAlert
 
@@ -39,6 +45,7 @@ class MainMenuActivity : AppCompatActivity() {
 		setContentView(R.layout.activity_main_menu)
 
 		checkRequiredConnections()
+
 
 		auth = Firebase.auth
 		if (auth.currentUser == null) {
@@ -83,7 +90,6 @@ class MainMenuActivity : AppCompatActivity() {
 			.apply {
 				setStatusBarBackground(R.color.colorPrimaryDark2)
 			}
-
 		val navView = findViewById<NavigationView>(R.id.nav_view)
 		val header = navView.getHeaderView(0)
 		val usernameTv = header.findViewById<TextView>(R.id.tv_drawer_username)
@@ -91,6 +97,7 @@ class MainMenuActivity : AppCompatActivity() {
 		val usernameEmail = header.findViewById<TextView>(R.id.tv_drawer_email)
 		usernameEmail.text = email
 	}
+
 
 	override fun onBackPressed() {
 		if(drawerLayout.isDrawerOpen(GravityCompat.START)){

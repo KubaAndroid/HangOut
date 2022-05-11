@@ -1,15 +1,19 @@
 package jw.adamiak.hangout.ui.events.events_map
 
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
@@ -17,6 +21,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -32,13 +38,16 @@ import jw.adamiak.hangout.R
 import jw.adamiak.hangout.data.remote.MapObject
 import jw.adamiak.hangout.data.remote.PIN_TYPE
 import jw.adamiak.hangout.databinding.FragmentMapEventsBinding
+import jw.adamiak.hangout.utils.CHANNEL_ID
+import jw.adamiak.hangout.utils.CHANNEL_NAME
 import jw.adamiak.hangout.utils.Constants
 import jw.adamiak.hangout.utils.Helpers
 import jw.adamiak.hangout.utils.Helpers.setMarkerType
 import kotlinx.coroutines.launch
 
 
-class MapEventsFragment: Fragment(R.layout.fragment_map_events), GoogleMap.OnInfoWindowLongClickListener {
+class MapEventsFragment: Fragment(R.layout.fragment_map_events),
+	GoogleMap.OnInfoWindowLongClickListener {
 	private lateinit var binding: FragmentMapEventsBinding
 	private val viewModel: MapViewModel by viewModels()
 
@@ -57,6 +66,7 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events), GoogleMap.OnInf
 		super.onViewCreated(view, savedInstanceState)
 		binding = FragmentMapEventsBinding.bind(view)
 		db = Firebase.firestore
+		createChannel()
 
 		viewModel.message.observe(viewLifecycleOwner) {
 			showToast(it)
@@ -65,7 +75,6 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events), GoogleMap.OnInf
 		val map = childFragmentManager.findFragmentById(R.id.main_map_fragment) as SupportMapFragment?
 		map?.getMapAsync(mapCallback)
 		fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext())
-
 	}
 
 	private val mapCallback = OnMapReadyCallback {
@@ -104,6 +113,7 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events), GoogleMap.OnInf
 				if (loc == null) {
 					showToast("Cannot locate user")
 				} else {
+
 					mMap.animateCamera(
 						CameraUpdateFactory
 							.newCameraPosition(
@@ -114,6 +124,8 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events), GoogleMap.OnInf
 									.tilt(45f)
 									.build()))
 
+					// TODO: set user location for notifications
+					viewModel.setUserLocation(loc)
 				}
 			}
 		} else {
@@ -173,8 +185,30 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events), GoogleMap.OnInf
 				showToast("Pin deleted")
 			}
 			.addOnFailureListener {
-				showToast("Error occurred")
+				showToast("Error occurred:\n${it.message}")
 			}
+	}
+
+
+	private fun createChannel() {
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+			val notificationChannel = NotificationChannel(
+				CHANNEL_ID,
+				CHANNEL_NAME,
+				NotificationManager.IMPORTANCE_DEFAULT
+			)
+
+			notificationChannel.enableLights(true)
+			notificationChannel.lightColor = Color.RED
+			notificationChannel.enableVibration(true)
+			notificationChannel.description = "Time to HangOut"
+			notificationChannel.setShowBadge(true)
+
+			val notificationManager = requireActivity().getSystemService(
+				NotificationManager::class.java)
+
+			notificationManager.createNotificationChannel(notificationChannel)
+		}
 	}
 
 	private fun showToast(message: String) {
