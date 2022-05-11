@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/drawable/bottom_selector.xml" value="0.1" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/drawable/button.xml" value="0.118" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/drawable/ic_add.xml" value="0.1305" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/drawable/ic_back.xml" value="0.152" />
@@ -26,6 +27,8 @@
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/activity_main.xml" value="0.13272543059777103" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/activity_main_menu.xml" value="0.25" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/activity_start.xml" value="0.13272543059777103" />
+        <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/bottom_sheet.xml" value="0.25" />
+        <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/bottom_sheet_item.xml" value="0.33" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/custom_snackbar.xml" value="0.25" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/drawer_header.xml" value="0.2" />
         <entry key="..\:/Dev/Kotlin/HangOut/app/src/main/res/layout/fragment_about.xml" value="0.33" />
