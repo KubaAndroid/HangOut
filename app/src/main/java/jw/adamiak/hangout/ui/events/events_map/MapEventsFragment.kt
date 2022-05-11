@@ -55,6 +55,9 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events),
 	private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 	private lateinit var db: FirebaseFirestore
 
+	private lateinit var snack: Snackbar
+	private var isSnackbarVisible: Boolean = false
+
 	private var mapObjects = mutableListOf<MapObject>()
 
 	override fun onResume() {
@@ -158,7 +161,8 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events),
 	}
 
 	private fun showDeleteSnackbar(pointToDelete: MapObject, marker: Marker) {
-		val snack = Snackbar.make(requireView(), "", Snackbar.LENGTH_INDEFINITE)
+		isSnackbarVisible = true
+		snack = Snackbar.make(requireView(), "", Snackbar.LENGTH_INDEFINITE)
 		val customSnackView = layoutInflater.inflate(R.layout.custom_snackbar, null)
 		snack.view.setBackgroundColor(Color.TRANSPARENT)
 		val snackLayout = snack.view as Snackbar.SnackbarLayout
@@ -169,10 +173,12 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events),
 			marker.remove()
 			deleteEvent(pointToDelete)
 			snack.dismiss()
+			isSnackbarVisible = false
 		}
 		val cancel = customSnackView.findViewById<TextView>(R.id.btn_snack_delete_cancel)
 		cancel.setOnClickListener {
 			snack.dismiss()
+			isSnackbarVisible = false
 		}
 		snackLayout.addView(customSnackView, 0)
 		snack.show()
@@ -213,6 +219,13 @@ class MapEventsFragment: Fragment(R.layout.fragment_map_events),
 
 	private fun showToast(message: String) {
 		Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+	}
+
+	override fun onDestroy() {
+		if(isSnackbarVisible) {
+			snack.dismiss()
+		}
+		super.onDestroy()
 	}
 
 }
